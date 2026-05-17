@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>بروشور تطبيق عَلَمْ المدرسي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #1e3a8a; /* Deep Blue */
+            --secondary-color: #2563eb; /* Bright Blue */
+            --accent-color: #f59e0b; /* Golden Yellow */
+            --bg-light: #f8fafc;
+            --text-dark: #0f172a;
+            --text-muted: #475569;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: #e2e8f0;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Container for the brochure (A4 proportions approx) */
+        .brochure-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: var(--white);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* Header Section */
+        .header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+            position: relative;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: var(--white);
+            clip-path: polygon(0 100%, 100% 100%, 100% 0);
+        }
+
+        .logo-circle {
+            width: 100px;
+            height: 100px;
+            background: var(--white);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .logo-circle span {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 36px;
+            font-weight: 800;
+            color: var(--primary-color);
+        }
+
+        .header h1 {
+            font-size: 42px;
+            font-weight: 900;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .header p {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 20px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        /* Content Sections */
+        .section {
+            padding: 40px 50px;
+        }
+
+        .section-title {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 35px;
+            background-color: var(--accent-color);
+            border-radius: 4px;
+        }
+
+        /* Grid Layouts */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+
+        .feature-card {
+            background: var(--bg-light);
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 25px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+            border-color: var(--secondary-color);
+        }
+
+        .feature-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--secondary-color);
+        }
+
+        .feature-title {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .feature-desc {
+            font-size: 15px;
+            color: var(--text-muted);
+        }
+
+        /* Why They Need It Section */
+        .target-audience {
+            background: linear-gradient(to right, #eff6ff, #f8fafc);
+            border-radius: 16px;
+            padding: 35px;
+            margin: 30px 50px;
+            border-right: 5px solid var(--secondary-color);
+        }
+
+        .target-item {
+            margin-bottom: 20px;
+        }
+        
+        .target-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .target-item h3 {
+            font-family: 'Tajawal', sans-serif;
+            font-size: 22px;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Call to Action & Footer */
+        .footer {
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        .contact-grid {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 18px;
+            font-family: 'Tajawal', sans-serif;
+            font-weight: 500;
+        }
+
+        .contact-icon {
+            background: rgba(255,255,255,0.1);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            font-size: 20px;
+        }
+
+        /* Decorative Elements */
+        .shape-1 {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 150px;
+            height: 150px;
+            border: 2px solid rgba(255,255,255,0.1);
+            border-radius: 50%;
+        }
+
+        .shape-2 {
+            position: absolute;
+            bottom: -50px;
+            left: -50px;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+        }
+
+        /* تحسينات الطباعة للحفاظ على الألوان والتصميم عند التحويل لـ PDF */
+        @media print {
+            * {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            body {
+                background-color: white !important;
+            }
+            .brochure-container {
+                box-shadow: none !important;
+                margin: 0 !important;
+                max-width: 100% !important;
+                border-radius: 0 !important;
+            }
+            .feature-card, .target-item, img {
+                page-break-inside: avoid !important;
+            }
+            .section {
+                page-break-inside: avoid !important;
+            }
+            @page {
+                margin: 0; /* إزالة هوامش الصفحة الافتراضية للطباعة */
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="brochure-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="shape-1"></div>
+            <div class="logo-circle" style="padding: 8px;">
+            <img src="logo.png" alt="شعار علم" style="width: 100%; height: 100%; object-fit: contain; border-radius: 50%;">
+        </div>
+            <h1>تطبيق عَلَمْ المدرسي</h1>
+            <p>الحل التقني المتكامل والمبتكر لإدارة الانضباط المدرسي باحترافية</p>
+        </header>
+
+        <!-- Introduction Section -->
+        <section class="section" style="background-color: #ffffff; padding-bottom: 10px;">
+            <h2 class="section-title" style="justify-content: center; text-align: center; margin-bottom: 20px;">نقلة نوعية في إدارة البيئة المدرسية</h2>
+            <div style="font-size: 18px; color: var(--text-muted); text-align: justify; line-height: 1.8; background: #f8fafc; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; border-right: 5px solid var(--accent-color);">
+                <p style="margin-bottom: 15px;">
+                    <strong>تطبيق "عَلَمْ المدرسي"</strong> ليس مجرد برنامج تقليدي، بل هو منظومة متكاملة صُممت خصيصاً لضبط البيئة الدراسية بكل كفاءة واحترافية. إنها آلة فريدة من نوعها تدمج بين الإدارة المدرسية وإمكانيات <strong>التعرف على الوجوه بدقة عالية جداً</strong> مع الاحتفاظ بسرعة استجابة فائقة.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    يُعد هذا التطبيق بيئة عمل <strong>متعددة المستويات</strong>؛ فهو يجمع بين كونه قاعدة بيانات ضخمة، وآلة لرسم المخططات البيانية، وأداة لتحليل البيانات المعقدة، ومحركاً للذكاء الاصطناعي... <strong>كلها في تطبيق واحد</strong> متصل ببعضه البعض بذكاء.
+                </p>
+                <p>
+                    كما ينفرد التطبيق بدعمه إمكانيات <strong>الطباعة بشكل مكثف واحترافي</strong> في معظم شاشاته، بالإضافة إلى قدرته الفائقة على التواصل اللحظي والمباشر مع أولياء الأمور عبر إرسال <strong>رسائل الواتساب والرسائل النصية (SMS)</strong>، ليضع مدرستك في صدارة التحول الرقمي.
+                </p>
+            </div>
+        </section>
+
+        <!-- Target Audience Section -->
+        <div class="target-audience">
+            <h2 class="section-title" style="font-size: 24px; margin-bottom: 20px;">لماذا هو الخيار الأول لإدارة المواظبة والحضور للطلاب !</h2>
+            
+            <div class="target-item">
+                <h3>👨‍💼 مدير المدرسة</h3>
+                <p>لأنه يمنح مدير المدرسة الفرصة للمتابعة المستمرة من خلال شاشة "علم بلس" عبر شبكة المدرسة، مما يساعده على إتخاذ القرارات المناسبة والاطلاع اللحظي على مؤشرات الانضباط وسير العمل لتقييم الأداء العام للمدرسة بكفاءة عالية.</p>
+            </div>
+
+            <div class="target-item">
+                <h3>👨‍🏫 وكيل شؤون الطلاب</h3>
+                <p>يمنحك السيطرة الكاملة على حركة الدخول والخروج في المدرسة. يحول العمل الورقي المرهق إلى نظام رقمي سريع يوفر وقتك وجهدك. بضغطة زر يمكنك رصد التأخر الصباحي، طباعة تذاكر الاستئذان الحرارية، واستخراج كشوف الحضور والغياب بصيغتي Excel و PDF بمنتهى الدقة.</p>
+            </div>
+
+            <div class="target-item">
+                <h3>🧭 الموجه الطلابي</h3>
+                <p>يوفر لك رؤية تحليلية شاملة ومباشرة لسلوك الطلاب. من خلال التقارير التفصيلية ولوحة البيانات (Dashboard)، يمكنك بسهولة حصر حالات الغياب المتكرر، اكتشاف الطلاب المتسربين من الفصول، والتدخل الإرشادي المبكر والمبني على بيانات دقيقة وموثوقة.</p>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <section class="section">
+            <h2 class="section-title">مميزات حصرية تصنع الفارق</h2>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3 class="feature-title">شاشة الخدمات الطلابية</h3>
+                    <p class="feature-desc">واجهة سريعة لتسجيل الاستئذان، التأخر، والمخالفات. مع نظام حماية ذكي يمنع تكرار طباعة تذكرة الاستئذان لنفس الطالب في نفس اليوم لضمان أعلى درجات الانضباط.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 class="feature-title">نظام "علم بلس" المساند</h3>
+                    <p class="feature-desc">تطبيق متصل شبكياً يتيح للإدارة استخدام النظام من أجهزة متعددة داخل المدرسة في نفس الوقت، مع مزامنة لحظية للبيانات عبر "الجسر" (ALAM Bridge) المتكامل.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">تقارير احترافية ومفصلة</h3>
+                    <p class="feature-desc">تصدير تقارير الغياب اليومي، التأخر الصباحي، وأفضل الطلاب بشكل تلقائي ومنسق بصيغ PDF و Excel. مدعوم بعرض التاريخ الهجري والميلادي معاً.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📷</div>
+                    <h3 class="feature-title">قراءة الباركود والذكاء الاصطناعي</h3>
+                    <p class="feature-desc">إمكانية استخدام أجهزة قراءة الباركود لتسجيل الحضور والانصراف بسرعة البرق، بالإضافة إلى دعم التقنيات الحديثة للتعرف على الطلاب لتسريع الإجراءات اليومية.</p>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📹</div>
+                    <h3 class="feature-title">التحضير بكاميرا احترافية</h3>
+                    <p class="feature-desc">التحضير بكاميرا احترافية عالية الدقة بنظام تحضير فردي أو تحضير جماعي سريع بعدسة كاميرا واحدة فقط بفارق زمني أقل من ثانية واحدة للطالب/ــة بواجهة حضور مرنة قابلة للتغيير وتلبي كافة الاحتياجات.</p>
+                </div>
+
+                <!-- Feature 6 -->
+                <div class="feature-card">
+                    <div class="feature-icon">📈</div>
+                    <h3 class="feature-title">لوحة تحكم (Dashboard) شاملة</h3>
+                    <p class="feature-desc">توفر العديد من المميزات والبيانات اللحظية والجداول الاحترافية، بالإضافة إلى مؤشر الانضباط العام للمدرسة مما يعكس مجمل الحالة الانضباطية على مستوى المدرسة بشكل واضح ودقيق.</p>
+                </div>
+
+                <!-- Feature 7 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🌟</div>
+                    <h3 class="feature-title">المثاليون والمحتاجون لمتابعة</h3>
+                    <p class="feature-desc">أداة تحليلية ذكية تفرز تلقائياً صفوة الطلاب المثاليين لتكريمهم، وترصد بدقة الطلاب الذين يحتاجون إلى متابعة مكثفة (سلوكياً وانضباطياً) لتمكين التوجيه الطلابي من التدخل الإيجابي المبكر.</p>
+                </div>
+
+                <!-- Feature 8 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🪪</div>
+                    <h3 class="feature-title">بطاقة الطالب الشاملة</h3>
+                    <p class="feature-desc">سجل رقمي متكامل يجمع كل ما يخص الطالب في واجهة واحدة أنيقة. تعرض البطاقة تاريخ الحضور والغياب، السجل السلوكي، وحالة التواصل مع ولي الأمر، مما يسهل استعراض مسيرة الطالب بلمحة بصر.</p>
+                </div>
+
+                <!-- Feature 9 -->
+                <div class="feature-card">
+                    <div class="feature-icon">⚠️</div>
+                    <h3 class="feature-title">نظام الإنذارات الآلي</h3>
+                    <p class="feature-desc">آلية متطورة تصدر إشعارات وتنبيهات فورية عند تجاوز الطالب للحد المسموح به من الغياب أو المخالفات. تضمن هذه الميزة التواصل الاستباقي مع أولياء الأمور وتطبيق اللوائح المدرسية بشفافية وعدالة.</p>
+                </div>
+
+                <!-- Feature 10 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🔍</div>
+                    <h3 class="feature-title">الاستعراض الشامل (مدرسة، فصول، طلاب)</h3>
+                    <p class="feature-desc">ثلاث شاشات تحليلية مترابطة تتيح لك الانتقال بسلاسة من رؤية مؤشرات المدرسة بالكامل، إلى تحليل أداء فصول محددة، وصولاً إلى استعراض التفاصيل الدقيقة لكل طالب على حدة في ثوانٍ معدودة.</p>
+                </div>
+
+                <!-- Feature 11 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">التحليل الذكي والرؤى</h3>
+                    <p class="feature-desc">تحليلات بيانية معمقة مدعومة بخوارزميات ذكية لتتبع الحضور، المخالفات، والاستئذانات، مما يسهل قراءة مسار الانضباط العام واكتشاف الأنماط السلوكية للطلاب بلمحة واحدة.</p>
+                </div>
+
+                <!-- Feature 12 -->
+                <div class="feature-card">
+                    <div class="feature-icon">🛠️</div>
+                    <h3 class="feature-title">الأدوات المتقدمة والذكاء الاصطناعي</h3>
+                    <p class="feature-desc">شاشة إدارية قوية تتيح لك إدارة إعدادات المدرسة والتزامن، وتهيئة نماذج التعرف الآلي والذكاء الاصطناعي لتخصيص التطبيق بدقة ليتناسب مع احتياجات بيئتك المدرسية.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Screenshots Section -->
+        <section class="section" style="background-color: #f8fafc; border-top: 1px solid #e2e8f0; border-bottom: 1px solid #e2e8f0;">
+            <h2 class="section-title" style="justify-content: center; margin-bottom: 30px;">نظرة من داخل التطبيق</h2>
+            
+            <div style="display: flex; flex-direction: column; gap: 30px; align-items: center; padding: 0 20px;">
+                
+                <!-- Image 1 -->
+                <div style="width: 100%; max-width: 800px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #cbd5e1;">
+                    <img src="screenshots/1.png" alt="واجهة التطبيق 1" style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <!-- Image 2 -->
+                <div style="width: 100%; max-width: 800px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #cbd5e1;">
+                    <img src="screenshots/2.png" alt="واجهة التطبيق 2" style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <!-- Image 3 -->
+                <div style="width: 100%; max-width: 800px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #cbd5e1;">
+                    <img src="screenshots/3.png" alt="واجهة التطبيق 3" style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <!-- Image 4 -->
+                <div style="width: 100%; max-width: 800px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #cbd5e1;">
+                    <img src="screenshots/4.png" alt="واجهة التطبيق 4" style="width: 100%; height: auto; display: block;">
+                </div>
+
+                <!-- Image 5 -->
+                <div style="width: 100%; max-width: 800px; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); border: 1px solid #cbd5e1;">
+                    <img src="screenshots/5.png" alt="واجهة التطبيق 5" style="width: 100%; height: auto; display: block;">
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer / Contact -->
+        <footer class="footer">
+            <div class="shape-2"></div>
+            <h2 style="font-family: 'Tajawal', sans-serif; font-size: 26px; margin-bottom: 10px;">انطلق نحو بيئة مدرسية رقمية ومنضبطة!</h2>
+            <p style="opacity: 0.9; margin-bottom: 25px;">تواصل معنا الآن للحصول على نسختك أو لطلب الدعم الفني</p>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="contact-icon">📞</div>
+                    <span>0583180047</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">✉️</div>
+                    <span>alamapphelp@gmail.com</span>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🌐</div>
+                    <span>mohad1010.github.io/alam-app</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+</body>
+</html>
